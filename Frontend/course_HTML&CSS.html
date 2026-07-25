@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML & CSS Course - EduLearn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#f5f5f5;
+    }
+
+    a{
+        color:inherit;
+    }
+
+    /* Navbar */
+
+    nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 8%;
+        background:#0d6efd;
+        color:white;
+    }
+
+    nav h2{
+        font-size:30px;
+    }
+
+    nav a.back{
+        color:white;
+        text-decoration:none;
+        font-size:16px;
+        border:1px solid rgba(255,255,255,.6);
+        padding:8px 16px;
+        border-radius:5px;
+    }
+
+    nav a.back:hover{
+        background:rgba(255,255,255,.15);
+    }
+
+    /* Course hero */
+
+    .course-hero{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:40px;
+        padding:70px 8%;
+        background:linear-gradient(to right,#0d6efd,#3a86ff);
+        color:white;
+        flex-wrap:wrap;
+    }
+
+    .course-hero .left{
+        max-width:600px;
+    }
+
+    .badge{
+        display:inline-block;
+        background:rgba(255,255,255,.2);
+        padding:6px 14px;
+        border-radius:20px;
+        font-size:13px;
+        margin-bottom:18px;
+        letter-spacing:.5px;
+    }
+
+    .course-hero h1{
+        font-size:48px;
+        margin-bottom:18px;
+        line-height:1.15;
+    }
+
+    .course-hero p.desc{
+        font-size:18px;
+        margin-bottom:28px;
+        opacity:.95;
+    }
+
+    .stats-row{
+        display:flex;
+        gap:30px;
+        margin-bottom:30px;
+        flex-wrap:wrap;
+    }
+
+    .stats-row div{
+        font-size:14px;
+    }
+
+    .stats-row strong{
+        display:block;
+        font-size:20px;
+    }
+
+    .course-hero button{
+        padding:15px 35px;
+        border:none;
+        background:white;
+        color:#0d6efd;
+        font-size:18px;
+        font-weight:bold;
+        border-radius:6px;
+        cursor:pointer;
+    }
+
+    .course-hero .right img{
+        width:400px;
+        border-radius:12px;
+        box-shadow:0 15px 40px rgba(0,0,0,.25);
+    }
+
+    /* Content layout */
+
+    .content-wrap{
+        display:flex;
+        gap:40px;
+        padding:60px 8%;
+        align-items:flex-start;
+        flex-wrap:wrap;
+    }
+
+    .main-col{
+        flex:2;
+        min-width:320px;
+    }
+
+    .side-col{
+        flex:1;
+        min-width:280px;
+    }
+
+    .main-col h2{
+        font-size:28px;
+        margin-bottom:18px;
+        color:#0d1b3d;
+    }
+
+    .section{
+        margin-bottom:45px;
+    }
+
+    .section p{
+        color:#444;
+        line-height:1.7;
+        margin-bottom:15px;
+    }
+
+    /* Curriculum */
+
+    .module{
+        background:white;
+        border-radius:10px;
+        box-shadow:0 0 12px rgba(0,0,0,.08);
+        margin-bottom:14px;
+        overflow:hidden;
+    }
+
+    .module-head{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 22px;
+    }
+
+    .module-head .num{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:32px;
+        height:32px;
+        background:#e7f0ff;
+        color:#0d6efd;
+        font-weight:bold;
+        border-radius:50%;
+        margin-right:14px;
+        font-size:14px;
+    }
+
+    .module-title{
+        display:flex;
+        align-items:center;
+        font-size:17px;
+        font-weight:bold;
+        color:#0d1b3d;
+    }
+
+    .module-meta{
+        font-size:13px;
+        color:#888;
+    }
+
+    /* What you'll learn */
+
+    .learn-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+    }
+
+    .learn-item{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+        background:white;
+        padding:14px 16px;
+        border-radius:8px;
+        box-shadow:0 0 10px rgba(0,0,0,.06);
+        font-size:14.5px;
+        color:#333;
+    }
+
+    .learn-item .check{
+        color:#0d6efd;
+        font-weight:bold;
+    }
+
+    /* Sidebar card */
+
+    .enroll-card{
+        background:white;
+        border-radius:12px;
+        box-shadow:0 0 20px rgba(0,0,0,.1);
+        padding:28px;
+        position:sticky;
+        top:20px;
+    }
+
+    .price{
+        font-size:34px;
+        color:#0d1b3d;
+        margin-bottom:4px;
+    }
+
+    .price span{
+        font-size:16px;
+        color:#999;
+        text-decoration:line-through;
+        margin-left:10px;
+    }
+
+    .price-sub{
+        font-size:13px;
+        color:#888;
+        margin-bottom:22px;
+    }
+
+    .enroll-card button{
+        width:100%;
+        padding:15px;
+        border:none;
+        background:#0d6efd;
+        color:white;
+        font-size:16px;
+        font-weight:bold;
+        border-radius:8px;
+        cursor:pointer;
+        margin-bottom:20px;
+    }
+
+    .enroll-card button:hover{
+        background:#0b5ed7;
+    }
+
+    .include-list{
+        list-style:none;
+    }
+
+    .include-list li{
+        display:flex;
+        justify-content:space-between;
+        padding:10px 0;
+        border-bottom:1px solid #eee;
+        font-size:14px;
+        color:#444;
+    }
+
+    .include-list li:last-child{
+        border-bottom:none;
+    }
+
+    /* Instructor */
+
+    .instructor-card{
+        background:white;
+        border-radius:10px;
+        box-shadow:0 0 12px rgba(0,0,0,.08);
+        padding:22px;
+        display:flex;
+        gap:16px;
+        align-items:center;
+    }
+
+    .instructor-card img{
+        width:70px;
+        height:70px;
+        border-radius:50%;
+        object-fit:cover;
+    }
+
+    .instructor-card h4{
+        color:#0d1b3d;
+        margin-bottom:4px;
+    }
+
+    .instructor-card p{
+        font-size:13px;
+        color:#777;
+    }
+
+    /* Footer */
+
+    footer{
+        background:#111;
+        color:white;
+        text-align:center;
+        padding:25px;
+        margin-top:50px;
+    }
+
+    @media(max-width:900px){
+
+    .course-hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .stats-row{
+        justify-content:center;
+    }
+
+    .course-hero .right img{
+        width:100%;
+        max-width:400px;
+    }
+
+    .learn-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    }
+
+</style>
+
+<nav>
+<h2>ED</h2>
+<a class="back" href="index.html">&larr; Back to Courses</a>
+</nav>
+
+<section class="course-hero">
+
+<div class="left">
+<span class="badge">BEGINNER FRIENDLY</span>
+<h1>HTML &amp; CSS: Build Websites From Scratch</h1>
+<p class="desc">Learn to structure and style web pages the right way. By the end of this course you'll be able to build responsive, good-looking websites using nothing but HTML and CSS.</p>
+
+<div class="stats-row">
+<div><strong>6 weeks</strong>Duration</div>
+<div><strong>42 lessons</strong>Video content</div>
+<div><strong>4.8 ★</strong>2,300 ratings</div>
+<div><strong>12,400+</strong>Students enrolled</div>
+</div>
+
+<button>Enroll Now - ₹1,499</button>
+</div>
+
+<div class="right">
+<img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=700" alt="Code on a screen">
+</div>
+
+</section>
+
+<div class="content-wrap">
+
+<div class="main-col">
+
+<div class="section">
+<h2>About this course</h2>
+<p>HTML &amp; CSS is where every web developer starts. This course walks you through building real web pages step by step, starting with plain HTML structure and moving into modern, responsive CSS layouts using Flexbox and Grid.</p>
+<p>No prior experience is needed. Every lesson is hands-on: you'll write code alongside the instructor and finish with a portfolio of five real projects, including the landing page you're looking at right now.</p>
+</div>
+
+<div class="section">
+<h2>What you'll learn</h2>
+<div class="learn-grid">
+<div class="learn-item"><span class="check">✓</span> Semantic HTML structure and accessibility basics</div>
+<div class="learn-item"><span class="check">✓</span> CSS selectors, box model, and specificity</div>
+<div class="learn-item"><span class="check">✓</span> Flexbox and Grid for real layouts</div>
+<div class="learn-item"><span class="check">✓</span> Responsive design with media queries</div>
+<div class="learn-item"><span class="check">✓</span> Forms, tables, and navigation menus</div>
+<div class="learn-item"><span class="check">✓</span> Animations, transitions, and hover effects</div>
+<div class="learn-item"><span class="check">✓</span> Deploying a finished site online</div>
+<div class="learn-item"><span class="check">✓</span> Five portfolio-ready projects</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Curriculum</h2>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">1</span> Getting Started with HTML</div>
+<div class="module-meta">6 lessons · 1h 40m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">2</span> Structuring Pages Semantically</div>
+<div class="module-meta">7 lessons · 2h 05m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">3</span> CSS Fundamentals &amp; the Box Model</div>
+<div class="module-meta">8 lessons · 2h 20m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">4</span> Flexbox &amp; Grid Layouts</div>
+<div class="module-meta">9 lessons · 2h 45m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">5</span> Responsive Design</div>
+<div class="module-meta">6 lessons · 1h 50m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">6</span> Final Projects &amp; Deployment</div>
+<div class="module-meta">6 lessons · 2h 10m</div>
+</div>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Instructor</h2>
+<div class="instructor-card">
+<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200" alt="Instructor">
+<div>
+<h4>Priya Sharma</h4>
+<p>Senior Front-End Engineer · 8 years teaching web development</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="side-col">
+<div class="enroll-card">
+<div class="price">₹1,499 <span>₹3,999</span></div>
+<div class="price-sub">One-time payment · Lifetime access</div>
+<button>Enroll Now</button>
+
+<ul class="include-list">
+<li><span>Video lessons</span><span>6h 30m</span></li>
+<li><span>Projects</span><span>5</span></li>
+<li><span>Certificate</span><span>Yes</span></li>
+<li><span>Access</span><span>Lifetime</span></li>
+<li><span>Level</span><span>Beginner</span></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<footer>
+<h2>ED</h2>
+<br>
+<p>Email : info@edulearn.com</p>
+<p>Phone : +91 9876543210</p>
+<br>
+<p>© 2026 EduLearn. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
