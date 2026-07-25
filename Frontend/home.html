@@ -1,112 +1,180 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
-        <link rel="stylesheet" href="style.css">
-            </head>
-            <body>
+    <title>ED CLOUD Courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="brand">
+            <span class="brand-mark">ED</span>
+            <span class="brand-name">ED CLOUD</span>
+        </div>
+        <div class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#features">Why Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a class="nav-button" href="#contact">Sign In</a>
+    </nav>
 
-            <section class="hero">
-
-            <div class="left">
-            <h1>Learn Skills Online</h1>
-            <p>Join thousands of students and learn Web Development, Java, Python, AI, and many more courses from expert instructors.</p>
-
-            <button>Explore Courses</button>
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="hero-tag">Learn skills for tomorrow</p>
+                <h1>Build your career with practical online courses.</h1>
+                <p>Join thousands of learners training in Web Development, Java, Python, AI, and Full Stack Development with real projects, mentoring, and flexible study.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#courses">Browse Courses</a>
+                    <a class="button secondary" href="#features">Why Choose Us</a>
+                </div>
+                <div class="hero-highlights">
+                    <div>
+                        <strong>5K+</strong>
+                        <span>Students</span>
+                    </div>
+                    <div>
+                        <strong>100+</strong>
+                        <span>Projects</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Support</span>
+                    </div>
+                </div>
             </div>
-
-            <div class="right">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" alt="">
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900" alt="Online learning">
             </div>
+        </section>
 
-            </section>
-
-            <h1 class="heading">Popular Courses</h1>
-
-            <div class="course-box">
-
-            <div class="card">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700">
-            <h3>HTML & CSS</h3>
-            <p>Build beautiful responsive websites from scratch.</p>
-            <button>Enroll Now</button>
+        <section class="section" id="courses">
+            <div class="section-header">
+                <p class="section-label">Popular Courses</p>
+                <h2>Courses designed for real-world skills.</h2>
             </div>
-
-            <div class="card">
-            <img src="https://www.devart.com/blog/wp-content/uploads/2021/02/1068x580_Host-MySQL-Databases-1-1.png">
-            <h3>MYSQL</h3>
-            <p>⁠MySQL is a free, open-source relational database management system (RDBMS) that uses Structured Query Language (SQL)<p>
-            <button>Enroll Now</button>
+            <div class="course-grid">
+                <article class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900" alt="HTML & CSS">
+                    <div class="course-content">
+                        <h3>HTML & CSS</h3>
+                        <p>Build responsive websites with modern design and clean markup.</p>
+                        <button>Enroll Now</button>
+                    </div>
+                </article>
+                <article class="course-card">
+                    <img src="https://www.devart.com/blog/wp-content/uploads/2021/02/1068x580_Host-MySQL-Databases-1-1.png" alt="MySQL">
+                    <div class="course-content">
+                        <h3>MySQL</h3>
+                        <p>Learn database design, queries, and backend data management.</p>
+                        <button>Enroll Now</button>
+                    </div>
+                </article>
+                <article class="course-card">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=900" alt="Java Programming">
+                    <div class="course-content">
+                        <h3>Java Programming</h3>
+                        <p>Master Java fundamentals and build production-ready applications.</p>
+                        <button>Enroll Now</button>
+                    </div>
+                </article>
+                <article class="course-card">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900" alt="Python">
+                    <div class="course-content">
+                        <h3>Python</h3>
+                        <p>Automate workflows, analyze data, and build intelligent solutions.</p>
+                        <button>Enroll Now</button>
+                    </div>
+                </article>
+                <article class="course-card">
+                    <img src="https://itchronicles.com/wp-content/uploads/2020/11/where-is-ai-used-1024x683.jpg" alt="AI Foundations">
+                    <div class="course-content">
+                        <h3>AI Foundations</h3>
+                        <p>Explore machine learning fundamentals and build smart projects.</p>
+                        <button>Enroll Now</button>
+                    </div>
+                </article>
+                <article class="course-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900" alt="Full Stack">
+                    <div class="course-content">
+                        <h3>Full Stack</h3>
+                        <p>Learn frontend, backend, and deployment for complete web apps.</p>
+                        <button>Enroll Now</button>
+                    </div>
+                </article>
             </div>
+        </section>
 
-            <div class="card">
-            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=700">
-            <h3>Java Programming</h3>
-            <p>Master Java from basic to advanced level.</p>
-            <button>Enroll Now</button>
+        <section class="section section-alt" id="features">
+            <div class="section-header">
+                <p class="section-label">Why Choose Us</p>
+                <h2>Practical learning with career-focused support.</h2>
             </div>
-
-            <div class="card">
-            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=700">
-            <h3>Python Course</h3>
-            <p>Learn Python for Automation, AI and Data Science.</p>
-            <button>Enroll Now</button>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Expert instructors</h3>
+                    <p>Learn from professionals who build real products.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Hands-on projects</h3>
+                    <p>Practice with real project work and build your portfolio.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Flexible pace</h3>
+                    <p>Study on your own schedule with guided content.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Active community</h3>
+                    <p>Get support from mentors and peers around the clock.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-            <img src="https://itchronicles.com/wp-content/uploads/2020/11/where-is-ai-used-1024x683.jpg">
-            <h3>AI</h3>
-            <p>AI is part of our daily lives in countless ways. It's one of the most transformative technologies of our time, acting as the engine behind modern innovation.<p>
-            <button>Enroll Now</button>
+        <section class="stats-section">
+            <div class="stats-card">
+                <h3>5,000+</h3>
+                <p>Students</p>
             </div>
-
-            <div class="card">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700">
-            <h3>Full Stack Development</h3>
-            <p>Become a professional Full Stack Web Developer.</p>
-            <button>Enroll Now</button>
+            <div class="stats-card">
+                <h3>100+</h3>
+                <p>Projects</p>
             </div>
-
+            <div class="stats-card">
+                <h3>50+</h3>
+                <p>Courses</p>
             </div>
-
-            <h1 class="heading">Why Choose Us</h1>
-
-            <div class="features">
-
-            <div class="box">
-            <h2>100+</h2>
-            <p>Expert Teachers</p>
+            <div class="stats-card">
+                <h3>24/7</h3>
+                <p>Support</p>
             </div>
+        </section>
 
-            <div class="box">
-            <h2>5000+</h2>
-            <p>Happy Students</p>
+        <section class="section contact" id="contact">
+            <div class="contact-box">
+                <div>
+                    <span class="section-label">Get in touch</span>
+                    <h2>Ready to start learning?</h2>
+                    <p>Contact us for course guidance, mentorship, and onboarding support.</p>
+                </div>
+                <a class="button primary" href="mailto:info@edulearn.com">Contact Us</a>
             </div>
+        </section>
+    </main>
 
-            <div class="box">
-            <h2>50+</h2>
-            <p>Online Courses</p>
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <h2>ED CLOUD</h2>
+                <p>Helping learners build practical skills for modern tech careers.</p>
             </div>
-
-            <div class="box">
-            <h2>24/7</h2>
-            <p>Support Available</p>
+            <div>
+                <p>Email: info@edulearn.com</p>
+                <p>Phone: +91 9876543210</p>
             </div>
-
-            </div>
-
-            <footer>
-
-            <h2>ED CLOUD</h2>
-            <br>
-            <p>Email : info@edulearn.com</p>
-            <p>Phone : +91 9876543210</p>
-            <br>
-            <p>© 2026 EduLearn. All Rights Reserved.</p>
-
-            </footer>
-
-    </body>
-    </html>
+        </div>
+        <p class="footer-copy">© 2026 ED CLOUD. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
