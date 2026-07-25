@@ -1,2 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Programming Course - EduLearn</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#f5f5f5;
+    }
+
+    a{
+        color:inherit;
+    }
+
+    /* Navbar */
+
+    nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 8%;
+        background:#0d6efd;
+        color:white;
+    }
+
+    nav h2{
+        font-size:30px;
+    }
+
+    nav a.back{
+        color:white;
+        text-decoration:none;
+        font-size:16px;
+        border:1px solid rgba(255,255,255,.6);
+        padding:8px 16px;
+        border-radius:5px;
+    }
+
+    nav a.back:hover{
+        background:rgba(255,255,255,.15);
+    }
+
+    /* Course hero */
+
+    .course-hero{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:40px;
+        padding:70px 8%;
+        background:linear-gradient(to right,#0d6efd,#3a86ff);
+        color:white;
+        flex-wrap:wrap;
+    }
+
+    .course-hero .left{
+        max-width:600px;
+    }
+
+    .badge{
+        display:inline-block;
+        background:rgba(255,255,255,.2);
+        padding:6px 14px;
+        border-radius:20px;
+        font-size:13px;
+        margin-bottom:18px;
+        letter-spacing:.5px;
+    }
+
+    .course-hero h1{
+        font-size:48px;
+        margin-bottom:18px;
+        line-height:1.15;
+    }
+
+    .course-hero p.desc{
+        font-size:18px;
+        margin-bottom:28px;
+        opacity:.95;
+    }
+
+    .stats-row{
+        display:flex;
+        gap:30px;
+        margin-bottom:30px;
+        flex-wrap:wrap;
+    }
+
+    .stats-row div{
+        font-size:14px;
+    }
+
+    .stats-row strong{
+        display:block;
+        font-size:20px;
+    }
+
+    .course-hero button{
+        padding:15px 35px;
+        border:none;
+        background:white;
+        color:#0d6efd;
+        font-size:18px;
+        font-weight:bold;
+        border-radius:6px;
+        cursor:pointer;
+    }
+
+    .course-hero .right img{
+        width:400px;
+        border-radius:12px;
+        box-shadow:0 15px 40px rgba(0,0,0,.25);
+    }
+
+    /* Content layout */
+
+    .content-wrap{
+        display:flex;
+        gap:40px;
+        padding:60px 8%;
+        align-items:flex-start;
+        flex-wrap:wrap;
+    }
+
+    .main-col{
+        flex:2;
+        min-width:320px;
+    }
+
+    .side-col{
+        flex:1;
+        min-width:280px;
+    }
+
+    .main-col h2{
+        font-size:28px;
+        margin-bottom:18px;
+        color:#0d1b3d;
+    }
+
+    .section{
+        margin-bottom:45px;
+    }
+
+    .section p{
+        color:#444;
+        line-height:1.7;
+        margin-bottom:15px;
+    }
+
+    /* Curriculum */
+
+    .module{
+        background:white;
+        border-radius:10px;
+        box-shadow:0 0 12px rgba(0,0,0,.08);
+        margin-bottom:14px;
+        overflow:hidden;
+    }
+
+    .module-head{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 22px;
+    }
+
+    .module-head .num{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:32px;
+        height:32px;
+        background:#e7f0ff;
+        color:#0d6efd;
+        font-weight:bold;
+        border-radius:50%;
+        margin-right:14px;
+        font-size:14px;
+    }
+
+    .module-title{
+        display:flex;
+        align-items:center;
+        font-size:17px;
+        font-weight:bold;
+        color:#0d1b3d;
+    }
+
+    .module-meta{
+        font-size:13px;
+        color:#888;
+    }
+
+    /* What you'll learn */
+
+    .learn-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+    }
+
+    .learn-item{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+        background:white;
+        padding:14px 16px;
+        border-radius:8px;
+        box-shadow:0 0 10px rgba(0,0,0,.06);
+        font-size:14.5px;
+        color:#333;
+    }
+
+    .learn-item .check{
+        color:#0d6efd;
+        font-weight:bold;
+    }
+
+    /* Sidebar card */
+
+    .enroll-card{
+        background:white;
+        border-radius:12px;
+        box-shadow:0 0 20px rgba(0,0,0,.1);
+        padding:28px;
+        position:sticky;
+        top:20px;
+    }
+
+    .price{
+        font-size:34px;
+        color:#0d1b3d;
+        margin-bottom:4px;
+    }
+
+    .price span{
+        font-size:16px;
+        color:#999;
+        text-decoration:line-through;
+        margin-left:10px;
+    }
+
+    .price-sub{
+        font-size:13px;
+        color:#888;
+        margin-bottom:22px;
+    }
+
+    .enroll-card button{
+        width:100%;
+        padding:15px;
+        border:none;
+        background:#0d6efd;
+        color:white;
+        font-size:16px;
+        font-weight:bold;
+        border-radius:8px;
+        cursor:pointer;
+        margin-bottom:20px;
+    }
+
+    .enroll-card button:hover{
+        background:#0b5ed7;
+    }
+
+    .include-list{
+        list-style:none;
+    }
+
+    .include-list li{
+        display:flex;
+        justify-content:space-between;
+        padding:10px 0;
+        border-bottom:1px solid #eee;
+        font-size:14px;
+        color:#444;
+    }
+
+    .include-list li:last-child{
+        border-bottom:none;
+    }
+
+    /* Instructor */
+
+    .instructor-card{
+        background:white;
+        border-radius:10px;
+        box-shadow:0 0 12px rgba(0,0,0,.08);
+        padding:22px;
+        display:flex;
+        gap:16px;
+        align-items:center;
+    }
+
+    .instructor-card img{
+        width:70px;
+        height:70px;
+        border-radius:50%;
+        object-fit:cover;
+    }
+
+    .instructor-card h4{
+        color:#0d1b3d;
+        margin-bottom:4px;
+    }
+
+    .instructor-card p{
+        font-size:13px;
+        color:#777;
+    }
+
+    /* Footer */
+
+    footer{
+        background:#111;
+        color:white;
+        text-align:center;
+        padding:25px;
+        margin-top:50px;
+    }
+
+    @media(max-width:900px){
+
+    .course-hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .stats-row{
+        justify-content:center;
+    }
+
+    .course-hero .right img{
+        width:100%;
+        max-width:400px;
+    }
+
+    .learn-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    }
+
+</style>
+
+<nav>
+<h2>ED</h2>
+<a class="back" href="index.html">&larr; Back to Courses</a>
+</nav>
+
+<section class="course-hero">
+
+<div class="left">
+<span class="badge">BASIC TO ADVANCED</span>
+<h1>Java Programming: From Fundamentals to OOP Mastery</h1>
+<p class="desc">Learn one of the most widely used programming languages in the world. By the end of this course you'll be able to write clean, object-oriented Java programs and understand how real-world Java applications are built.</p>
+
+<div class="stats-row">
+<div><strong>10 weeks</strong>Duration</div>
+<div><strong>58 lessons</strong>Video content</div>
+<div><strong>4.7 ★</strong>3,100 ratings</div>
+<div><strong>15,800+</strong>Students enrolled</div>
+</div>
+
+<button>Enroll Now - ₹1,999</button>
+</div>
+
+<div class="right">
+<img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700" alt="Java code on a screen">
+</div>
+
+</section>
+
+<div class="content-wrap">
+
+<div class="main-col">
+
+<div class="section">
+<h2>About this course</h2>
+<p>Java powers everything from Android apps to large-scale enterprise systems, and this course takes you from your very first program to writing well-structured, object-oriented code. You'll learn the syntax, the reasoning behind it, and the patterns real Java developers use every day.</p>
+<p>No prior experience is needed. Every lesson is hands-on: you'll write and run code alongside the instructor and finish with a portfolio of five real projects, including a console-based inventory system and a simple banking application.</p>
+</div>
+
+<div class="section">
+<h2>What you'll learn</h2>
+<div class="learn-grid">
+<div class="learn-item"><span class="check">✓</span> Java syntax, variables, and data types</div>
+<div class="learn-item"><span class="check">✓</span> Control flow, loops, and methods</div>
+<div class="learn-item"><span class="check">✓</span> Object-oriented programming (classes, inheritance, polymorphism)</div>
+<div class="learn-item"><span class="check">✓</span> Interfaces, abstract classes, and encapsulation</div>
+<div class="learn-item"><span class="check">✓</span> Collections framework and generics</div>
+<div class="learn-item"><span class="check">✓</span> Exception handling and debugging</div>
+<div class="learn-item"><span class="check">✓</span> File I/O and working with real data</div>
+<div class="learn-item"><span class="check">✓</span> Five portfolio-ready projects</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Curriculum</h2>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">1</span> Java Basics &amp; Setup</div>
+<div class="module-meta">7 lessons · 2h 00m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">2</span> Control Flow &amp; Methods</div>
+<div class="module-meta">9 lessons · 2h 30m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">3</span> Object-Oriented Programming</div>
+<div class="module-meta">12 lessons · 3h 40m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">4</span> Interfaces, Abstraction &amp; Encapsulation</div>
+<div class="module-meta">8 lessons · 2h 15m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">5</span> Collections, Generics &amp; Exceptions</div>
+<div class="module-meta">10 lessons · 2h 50m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">6</span> Final Projects &amp; File I/O</div>
+<div class="module-meta">7 lessons · 2h 20m</div>
+</div>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Instructor</h2>
+<div class="instructor-card">
+<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" alt="Instructor">
+<div>
+<h4>Arjun Mehta</h4>
+<p>Senior Java Developer · 10 years teaching backend development</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="side-col">
+<div class="enroll-card">
+<div class="price">₹1,999 <span>₹4,999</span></div>
+<div class="price-sub">One-time payment · Lifetime access</div>
+<button>Enroll Now</button>
+
+<ul class="include-list">
+<li><span>Video lessons</span><span>15h 35m</span></li>
+<li><span>Projects</span><span>5</span></li>
+<li><span>Certificate</span><span>Yes</span></li>
+<li><span>Access</span><span>Lifetime</span></li>
+<li><span>Level</span><span>Basic to Advanced</span></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<footer>
+<h2>ED</h2>
+<br>
+<p>Email : info@edulearn.com</p>
+<p>Phone : +91 9876543210</p>
+<br>
+<p>© 2026 EduLearn. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
 
