@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Foundations Course - EduLearn</title>
+</head>
+
+<body>
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#f5f5f5;
+    }
+
+    a{
+        color:inherit;
+    }
+
+    /* Navbar */
+
+    nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 8%;
+        background:#0d6efd;
+        color:white;
+    }
+
+    nav h2{
+        font-size:30px;
+    }
+
+    nav a.back{
+        color:white;
+        text-decoration:none;
+        font-size:16px;
+        border:1px solid rgba(255,255,255,.6);
+        padding:8px 16px;
+        border-radius:5px;
+    }
+
+    nav a.back:hover{
+        background:rgba(255,255,255,.15);
+    }
+
+    /* Course hero */
+
+    .course-hero{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:40px;
+        padding:70px 8%;
+        background:linear-gradient(to right,#0d6efd,#3a86ff);
+        color:white;
+        flex-wrap:wrap;
+    }
+
+    .course-hero .left{
+        max-width:600px;
+    }
+
+    .badge{
+        display:inline-block;
+        background:rgba(255,255,255,.2);
+        padding:6px 14px;
+        border-radius:20px;
+        font-size:13px;
+        margin-bottom:18px;
+        letter-spacing:.5px;
+    }
+
+    .course-hero h1{
+        font-size:48px;
+        margin-bottom:18px;
+        line-height:1.15;
+    }
+
+    .course-hero p.desc{
+        font-size:18px;
+        margin-bottom:28px;
+        opacity:.95;
+    }
+
+    .stats-row{
+        display:flex;
+        gap:30px;
+        margin-bottom:30px;
+        flex-wrap:wrap;
+    }
+
+    .stats-row div{
+        font-size:14px;
+    }
+
+    .stats-row strong{
+        display:block;
+        font-size:20px;
+    }
+
+    .course-hero button{
+        padding:15px 35px;
+        border:none;
+        background:white;
+        color:#0d6efd;
+        font-size:18px;
+        font-weight:bold;
+        border-radius:6px;
+        cursor:pointer;
+    }
+
+    .course-hero .right img{
+        width:400px;
+        border-radius:12px;
+        box-shadow:0 15px 40px rgba(0,0,0,.25);
+    }
+
+    /* Content layout */
+
+    .content-wrap{
+        display:flex;
+        gap:40px;
+        padding:60px 8%;
+        align-items:flex-start;
+        flex-wrap:wrap;
+    }
+
+    .main-col{
+        flex:2;
+        min-width:320px;
+    }
+
+    .side-col{
+        flex:1;
+        min-width:280px;
+    }
+
+    .main-col h2{
+        font-size:28px;
+        margin-bottom:18px;
+        color:#0d1b3d;
+    }
+
+    .section{
+        margin-bottom:45px;
+    }
+
+    .section p{
+        color:#444;
+        line-height:1.7;
+        margin-bottom:15px;
+    }
+
+    /* Curriculum */
+
+    .module{
+        background:white;
+        border-radius:10px;
+        box-shadow:0 0 12px rgba(0,0,0,.08);
+        margin-bottom:14px;
+        overflow:hidden;
+    }
+
+    .module-head{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 22px;
+    }
+
+    .module-head .num{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:32px;
+        height:32px;
+        background:#e7f0ff;
+        color:#0d6efd;
+        font-weight:bold;
+        border-radius:50%;
+        margin-right:14px;
+        font-size:14px;
+    }
+
+    .module-title{
+        display:flex;
+        align-items:center;
+        font-size:17px;
+        font-weight:bold;
+        color:#0d1b3d;
+    }
+
+    .module-meta{
+        font-size:13px;
+        color:#888;
+    }
+
+    /* What you'll learn */
+
+    .learn-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+    }
+
+    .learn-item{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+        background:white;
+        padding:14px 16px;
+        border-radius:8px;
+        box-shadow:0 0 10px rgba(0,0,0,.06);
+        font-size:14.5px;
+        color:#333;
+    }
+
+    .learn-item .check{
+        color:#0d6efd;
+        font-weight:bold;
+    }
+
+    /* Sidebar card */
+
+    .enroll-card{
+        background:white;
+        border-radius:12px;
+        box-shadow:0 0 20px rgba(0,0,0,.1);
+        padding:28px;
+        position:sticky;
+        top:20px;
+    }
+
+    .price{
+        font-size:34px;
+        color:#0d1b3d;
+        margin-bottom:4px;
+    }
+
+    .price span{
+        font-size:16px;
+        color:#999;
+        text-decoration:line-through;
+        margin-left:10px;
+    }
+
+    .price-sub{
+        font-size:13px;
+        color:#888;
+        margin-bottom:22px;
+    }
+
+    .enroll-card button{
+        width:100%;
+        padding:15px;
+        border:none;
+        background:#0d6efd;
+        color:white;
+        font-size:16px;
+        font-weight:bold;
+        border-radius:8px;
+        cursor:pointer;
+        margin-bottom:20px;
+    }
+
+    .enroll-card button:hover{
+        background:#0b5ed7;
+    }
+
+    .include-list{
+        list-style:none;
+    }
+
+    .include-list li{
+        display:flex;
+        justify-content:space-between;
+        padding:10px 0;
+        border-bottom:1px solid #eee;
+        font-size:14px;
+        color:#444;
+    }
+
+    .include-list li:last-child{
+        border-bottom:none;
+    }
+
+    /* Instructor */
+
+    .instructor-card{
+        background:white;
+        border-radius:10px;
+        box-shadow:0 0 12px rgba(0,0,0,.08);
+        padding:22px;
+        display:flex;
+        gap:16px;
+        align-items:center;
+    }
+
+    .instructor-card img{
+        width:70px;
+        height:70px;
+        border-radius:50%;
+        object-fit:cover;
+    }
+
+    .instructor-card h4{
+        color:#0d1b3d;
+        margin-bottom:4px;
+    }
+
+    .instructor-card p{
+        font-size:13px;
+        color:#777;
+    }
+
+    /* Footer */
+
+    footer{
+        background:#111;
+        color:white;
+        text-align:center;
+        padding:25px;
+        margin-top:50px;
+    }
+
+    @media(max-width:900px){
+
+    .course-hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .stats-row{
+        justify-content:center;
+    }
+
+    .course-hero .right img{
+        width:100%;
+        max-width:400px;
+    }
+
+    .learn-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    }
+
+</style>
+
+<nav>
+<h2>ED</h2>
+<a class="back" href="index.html">&larr; Back to Courses</a>
+</nav>
+
+<section class="course-hero">
+
+<div class="left">
+<span class="badge">BEGINNER FRIENDLY</span>
+<h1>AI Foundations: How Artificial Intelligence Really Works</h1>
+<p class="desc">Understand the ideas behind modern AI, from machine learning basics to neural networks, NLP, and computer vision. By the end you'll know how AI systems are built, trained, and used responsibly.</p>
+
+<div class="stats-row">
+<div><strong>6 weeks</strong>Duration</div>
+<div><strong>42 lessons</strong>Video content</div>
+<div><strong>4.9 ★</strong>2,410 ratings</div>
+<div><strong>12,300+</strong>Students enrolled</div>
+</div>
+
+<button>Enroll Now - ₹1,499</button>
+</div>
+
+<div class="right">
+<img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700" alt="AI and machine learning concept">
+</div>
+
+</section>
+
+<div class="content-wrap">
+
+<div class="main-col">
+
+<div class="section">
+<h2>About this course</h2>
+<p>Artificial intelligence now powers search engines, recommendation systems, chatbots, and countless everyday tools. This course breaks down how AI actually works, without assuming any prior background in math or programming.</p>
+<p>You'll build intuition first, then get hands-on with real, guided examples: training a simple machine learning model, building a small neural network, and experimenting with a language model. You'll finish with a clear mental model of what AI can and can't do, and a foundation strong enough to keep learning in any specialization you choose next.</p>
+</div>
+
+<div class="section">
+<h2>What you'll learn</h2>
+<div class="learn-grid">
+<div class="learn-item"><span class="check">✓</span> Core concepts: AI, machine learning, and deep learning</div>
+<div class="learn-item"><span class="check">✓</span> How models learn from data</div>
+<div class="learn-item"><span class="check">✓</span> Supervised, unsupervised, and reinforcement learning</div>
+<div class="learn-item"><span class="check">✓</span> Neural networks and how they're trained</div>
+<div class="learn-item"><span class="check">✓</span> Natural language processing basics</div>
+<div class="learn-item"><span class="check">✓</span> Computer vision fundamentals</div>
+<div class="learn-item"><span class="check">✓</span> Responsible AI, bias, and limitations</div>
+<div class="learn-item"><span class="check">✓</span> Three hands-on guided projects</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Curriculum</h2>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">1</span> What Is AI, Really?</div>
+<div class="module-meta">6 lessons · 1h 40m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">2</span> How Machines Learn from Data</div>
+<div class="module-meta">8 lessons · 2h 15m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">3</span> Neural Networks &amp; Deep Learning</div>
+<div class="module-meta">8 lessons · 2h 30m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">4</span> Language Models &amp; NLP</div>
+<div class="module-meta">7 lessons · 2h 05m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">5</span> Computer Vision Basics</div>
+<div class="module-meta">6 lessons · 1h 50m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">6</span> Ethics, Bias &amp; Responsible AI</div>
+<div class="module-meta">4 lessons · 1h 10m</div>
+</div>
+</div>
+
+<div class="module">
+<div class="module-head">
+<div class="module-title"><span class="num">7</span> Capstone Projects</div>
+<div class="module-meta">3 lessons · 1h 30m</div>
+</div>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Instructor</h2>
+<div class="instructor-card">
+<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200" alt="Instructor">
+<div>
+<h4>Arjun Mehta</h4>
+<p>ML Engineer · 8 years building and teaching applied AI systems</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="side-col">
+<div class="enroll-card">
+<div class="price">₹1,499 <span>₹3,999</span></div>
+<div class="price-sub">One-time payment · Lifetime access</div>
+<button>Enroll Now</button>
+
+<ul class="include-list">
+<li><span>Video lessons</span><span>13h 00m</span></li>
+<li><span>Projects</span><span>3</span></li>
+<li><span>Certificate</span><span>Yes</span></li>
+<li><span>Access</span><span>Lifetime</span></li>
+<li><span>Level</span><span>Beginner Friendly</span></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<footer>
+<h2>ED</h2>
+<br>
+<p>Email : info@edulearn.com</p>
+<p>Phone : +91 9876543210</p>
+<br>
+<p>© 2026 EduLearn. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
