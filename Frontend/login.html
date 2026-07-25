@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(135deg,#3f4040,#f8fbff);
+}
+
+
+.container{
+    width:900px;
+    height:550px;
+    background:white;
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+
+.left{
+    width:45%;
+    height:550px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.left::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(0deg, rgba(13,20,40,.85) 0%, rgba(13,20,40,.35) 45%, rgba(13,20,40,.15) 100%);
+}
+
+.left img.illustration,
+.left h3,
+.left p{
+    position:relative;
+    z-index:1;
+}
+
+.left h3,
+.left p{
+    padding:0 26px;
+}
+
+.left p{
+    margin-bottom:34px;
+}
+
+.left img.illustration{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.left h3{
+    color:white;
+    margin-top:20px;
+    font-size:21px;
+}
+
+.left p{
+    color:#eaf2ff;
+    font-size:14px;
+    margin-top:8px;
+    max-width:280px;
+    line-height:1.5;
+}
+
+.right{
+    width:55%;
+    padding:40px;
+    overflow-y:auto;
+}
+
+
+.logo{
+    text-align:center;
+    font-size:60px;
+}
+
+h2{
+    text-align:center;
+    color:#333;
+    margin:15px 0 25px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#0d6efd;
+}
+
+.option{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+    font-size:14px;
+}
+
+.option label{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.option input{
+    width:auto;
+}
+
+.option a{
+    text-decoration:none;
+    color:#0d6efd;
+}
+
+.option a:hover{
+    text-decoration:underline;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:15px;
+}
+
+.loginBtn{
+    background:#0d6efd;
+    color:white;
+}
+
+.loginBtn:hover{
+    background:#0b5ed7;
+}
+
+.googleBtn{
+    background:white;
+    border:1px solid #ccc;
+    color:#3c4043;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-weight:500;
+}
+
+.googleBtn svg{
+    width:18px;
+    height:18px;
+    flex-shrink:0;
+}
+
+.googleBtn:hover{
+    background:#f5f5f5;
+    box-shadow:0 1px 3px rgba(0,0,0,.15);
+}
+
+.divider{
+    text-align:center;
+    margin:20px 0;
+    position:relative;
+}
+
+.divider span{
+    background:white;
+    padding:0 10px;
+    color:gray;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:42%;
+    height:1px;
+    background:#ccc;
+}
+
+.divider::before{
+    left:0;
+}
+
+.divider::after{
+    right:0;
+}
+
+#message{
+    margin-top:15px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.valid{
+    color:green;
+}
+
+.invalid{
+    color:red;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    font-size:14px;
+}
+
+.footer a{
+    color:#0d6efd;
+    text-decoration:none;
+}
+
+.footer a:hover{
+    text-decoration:underline;
+}
+
+/* Stack on small screens so the layout never breaks */
+@media (max-width:820px){
+    .container{
+        width:100%;
+        height:auto;
+        flex-direction:column;
+    }
+    .left{
+        width:100%;
+        height:260px;
+    }
+    .right{
+        width:100%;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+
+        <img class="illustration" src="https://img.magnific.com/free-photo/ai-nuclear-energy-future-innovation-disruptive-technology_53876-129784.jpg" alt="Technology">
+
+        <h3>Welcome back, learner</h3>
+        <p>Log in to continue your courses and keep your progress on track.</p>
+
+    </div>
+
+    <div class="right">
+
+        <div class="logo">🎓</div>
+
+        <h2>Welcome Back</h2>
+
+        <input
+        type="text"
+        id="username"
+        placeholder="Enter Username or Email">
+
+        <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+        onkeyup="validatePassword()">
+
+        <div class="option">
+
+            <label>
+
+                <input
+                type="checkbox"
+                onclick="showPassword()">
+
+                Show Password
+
+            </label>
+
+            <a href="#">Forgot Password?</a>
+
+        </div>
+
+        <p id="message"></p>
+
+        <button class="loginBtn" onclick="login()">
+            Login
+        </button>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <button class="googleBtn" onclick="googleLogin()">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.4-.4-3.5z"/>
+              <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.3 18.9 12 24 12c3.1 0 5.8 1.1 8 3l5.7-5.7C34.6 6.1 29.6 4 24 4c-7.4 0-13.7 4.2-16.9 10.4z"/>
+              <path fill="#4CAF50" d="M24 44c5.5 0 10.4-1.9 14.2-5.1l-6.6-5.4C29.6 35.4 26.9 36 24 36c-5.3 0-9.7-3.4-11.3-8.1l-6.6 5.1C9.2 39.6 15.9 44 24 44z"/>
+              <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.6 5.4C41.4 35.9 44 30.4 44 24c0-1.2-.1-2.4-.4-3.5z"/>
+            </svg>
+            Continue with Google
+        </button>
+
+        <div class="footer">
+
+            Don't have an account?
+
+            <a href="signup.html">Sign Up</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function validatePassword(){
+
+let password=document.getElementById("password").value;
+
+let upper=/[A-Z]/;
+let lower=/[a-z]/;
+let number=/[0-9]/;
+let special=/[!@#$%^&*(),.?":{}|<>]/;
+
+let result=document.getElementById("message");
+
+if(password==""){
+
+result.innerHTML="";
+return;
+
+}
+
+if(password.length<8){
+
+result.innerHTML="❌ Password must be at least 8 characters.";
+result.className="invalid";
+
+}
+
+else if(!upper.test(password)){
+
+result.innerHTML="❌ Add one uppercase letter.";
+result.className="invalid";
+
+}
+
+else if(!lower.test(password)){
+
+result.innerHTML="❌ Add one lowercase letter.";
+result.className="invalid";
+
+}
+
+else if(!number.test(password)){
+
+result.innerHTML="❌ Add one number.";
+result.className="invalid";
+
+}
+
+else if(!special.test(password)){
+
+result.innerHTML="❌ Add one special character.";
+result.className="invalid";
+
+}
+
+else{
+
+result.innerHTML="✅ Strong Password";
+result.className="valid";
+
+}
+
+}
+
+function showPassword(){
+
+let pass=document.getElementById("password");
+
+if(pass.type=="password"){
+
+pass.type="text";
+
+}
+
+else{
+
+pass.type="password";
+
+}
+
+}
+
+function login(){
+
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+if(user=="" || pass==""){
+
+alert("Please fill all fields.");
+return;
+
+}
+
+let upper=/[A-Z]/;
+let lower=/[a-z]/;
+let number=/[0-9]/;
+let special=/[!@#$%^&*(),.?":{}|<>]/;
+
+if(pass.length<8 ||
+!upper.test(pass) ||
+!lower.test(pass) ||
+!number.test(pass) ||
+!special.test(pass)){
+
+alert("Please enter a valid password.");
+return;
+
+}
+
+alert("Login Successful");
+
+window.location.href="home.html";
+
+}
+
+function googleLogin(){
+
+alert("Google Login feature will be integrated later.");
+
+}
+
+</script>
+
+</body>
+</html>
